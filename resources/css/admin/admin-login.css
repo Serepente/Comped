@@ -1,0 +1,244 @@
+.login-body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    background-color: #181818;
+}
+
+.half {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #181818;
+    height: 100%;
+}
+
+.login-container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+.half {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.half.left {
+    background-color: #181818;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    flex-grow: 1;
+}
+
+.half.left img.main-logo {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    width: 150px;
+    height: auto;
+}
+
+.half.left img {
+    max-width: 500px;
+    margin-bottom: 20px;
+}
+
+.half.left p {
+    margin-top: 10px;
+}
+
+.half.right {
+    background-color: #181818;
+    color: #fff;
+    /* Set the text color to white */
+    position: relative;
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-top-left-radius: 70px;
+    border-bottom-left-radius: 70px;
+    position: relative;
+}
+
+.form-container {
+    width: 100%;
+    max-width: 500px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.input-login[type="email"],
+.input-login[type="password"],
+.input-login[type="text"],
+.button-login {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    font-size: 1rem;
+}
+
+.button-login {
+    background-color: #252525;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.button-login:hover {
+    background-color: #004bd6;
+}
+
+.google-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid #ccc;
+    background-color: #f5f5f5;
+    border-radius: 25px;
+}
+
+.google-login:hover {
+    background-color: #e9e9e9;
+}
+
+.terms {
+    display: flex;
+    align-items: center;
+}
+
+.terms input {
+    margin-right: 10px;
+}
+
+.redirect {
+    text-align: center;
+}
+
+.redirect a {
+    color: #112D57;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+/*
+  .back-arrow {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    text-decoration: none;
+    color: #ffffff;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+  }
+
+  .back-arrow svg {
+    width: 100%;
+    height: 100%;
+    fill: #ffffff;
+    transition: fill 0.3s ease;
+  }
+
+  .back-arrow:hover svg {
+    fill: #071124;
+  }
+
+  */
+
+.footer-text {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #888;
+}
+
+
+/* Media Queries for Small Screens */
+
+@media (max-width: 768px) {
+    .login-container {
+        flex-direction: column;
+        height: auto;
+    }
+    .half {
+        width: 100%;
+        flex: none;
+        padding: 30px;
+    }
+    .half.left img:first-child {
+        width: 250px;
+    }
+    .half.left img.main-logo {
+        width: 80px;
+    }
+    .half.right {
+        border-radius: 0;
+        padding: 30px;
+        width: 100%;
+        /* Ensure right side takes full width */
+        margin-top: 20px;
+        /* Add space between the sections */
+    }
+    /* Ensuring the form container is responsive */
+    .form-container {
+        max-width: 100%;
+    }
+    h1 {
+        font-size: 1.8rem;
+    }
+    .button-container {
+        display: flex;
+        justify-content: center;
+        /* Center the buttons */
+        gap: 15px;
+    }
+    .footer-text {
+        font-size: 0.8rem;
+        bottom: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+    .button-container {
+        gap: 10px;
+    }
+    .footer-text {
+        font-size: 0.8rem;
+    }
+    /* Adjust the right side to cover full width on very small screens */
+    .half.right {
+        width: 100%;
+        /* Ensure right side always takes full width on very small screens */
+    }
+}
