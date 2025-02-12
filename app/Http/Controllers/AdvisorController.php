@@ -73,4 +73,43 @@ class AdvisorController extends Controller
 
         return redirect()->route('admin.advisor.officers')->with('success', "{$student->name} has been removed from the officer list.");
     }
+
+    public function showStudents(Request $request)
+    {
+        $users = User::all();
+
+        $yearLevels = User::whereNotNull('year_level')->distinct()->pluck('year_level');
+
+        $query = User::query();
+
+        if ($request->filled('rfid')) {
+            $query->where('rfid', $request->rfid);
+        }
+
+        if ($request->filled('year_level') && $request->year_level !== 'all') {
+            $query->where('year_level', $request->year_level);
+        }
+
+        $users_query = $query->get();
+
+        return view('admin.advisor.useraccess', compact('users', 'users_query', 'yearLevels'));
+    }
+
+    public function updateUserAccess(Request $request, $id)
+    {
+        $request->validate([
+            'access_status' => 'required|string|in:pending,granted,revoked',
+        ]);
+        $user = User::findOrFail($id);
+        $user->update([
+            'access_status' => $request->access_status,
+        ]);
+
+        return redirect()->route('admin.advisor.useraccess')->with('success', 'Access status updated successfully.');
+    }
+
+
+
+
+
 }

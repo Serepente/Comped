@@ -8,7 +8,7 @@ class Borrowed extends Model
 {
     use HasFactory;
 
-    protected $table = 'borrowed'; // Define the table name
+    protected $table = 'borrowed';
 
     protected $fillable = [
         'user_id',

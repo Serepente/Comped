@@ -13,4 +13,10 @@ export default defineConfig({
             refresh: true,
         }),
     ],
+    resolve: {
+        alias: {
+            '$': 'jquery',
+            '@': path.resolve(__dirname, 'resources'),
+        },
+    },
 });

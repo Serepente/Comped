@@ -17,6 +17,7 @@ class User extends Authenticatable
         'student_id_num',
         'role',
         'possition',
+        'access_status',
         'rfid',
         'schoolyear',
         'profile_pic',

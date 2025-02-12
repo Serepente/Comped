@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AdminController;
 use App\Http\Controllers\AdvisorController;
 use App\Http\Controllers\BorrowController;
+use App\Http\Controllers\EventsController;
 use Illuminate\Http\Request;
 
 
@@ -47,9 +48,12 @@ Route::prefix('admin/advisor')->name('admin.advisor.')->group(function () {
     Route::post('/add-student/{id}', [AdvisorController::class, 'addStudentAdmin'])->name('addStudent');
     Route::post('/delete-student/{id}', [AdvisorController::class, 'deleteStudent'])->name('deleteStudent');
 
-    Route::get('/useraccess', function () {
-        return view('admin.advisor.useraccess');
-    })->name('useraccess');
+
+    Route::get('/useraccess', [AdvisorController::class, 'showStudents'])->name('useraccess');
+    Route::patch('/useraccess/{id}', [AdvisorController::class, 'updateUserAccess'])->name('updateUserAccess');
+
+
+
 });
 
 
@@ -109,11 +113,19 @@ Route::prefix('admin/secretary')->name('admin.secretary.')->group(function () {
         return view('admin.secretaryControl');
     })->name('control');
 
-    Route::get('/eventCreator', function () {
-        return view('admin.secretary.eventCreator');
-    })->name('eventCreator');
+    // Show all events in eventCreator page
+    Route::get('/eventCreator', [EventsController::class, 'showEvents'])->name('eventCreator');
 
+    // Add new event
+    Route::post('/eventCreator', [EventsController::class, 'addEvent'])->name('addEvent');
+
+    // Update existing event
+    Route::put('/events/{id}', [EventsController::class, 'updateEvent'])->name('updateEvent');
+    Route::delete('/events/{id}', [EventsController::class, 'destroy'])->name('deleteEvent');
+
+    // Inventory Management Page
     Route::get('/inventoryManagement', function () {
         return view('admin.secretary.inventoryManagement');
     })->name('inventoryManagement');
 });
+

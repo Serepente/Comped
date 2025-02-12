@@ -1,0 +1,37 @@
+/* Ensure nav buttons are visible */
+
+.owl-carousel .owl-nav button {
+    background-color: rgba(0, 0, 0, 0.5) !important;
+    color: white !important;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* Left Arrow */
+
+.owl-carousel .owl-nav .owl-prev {
+    left: -45px;
+}
+
+
+/* Right Arrow */
+
+.owl-carousel .owl-nav .owl-next {
+    right: -45px;
+}
+
+
+/* Hover Effect */
+
+.owl-carousel .owl-nav button:hover {
+    background-color: rgba(0, 0, 0, 0.8) !important;
+}
